@@ -30,7 +30,7 @@ h2 {
   line-height: 1.5;
 }
 
-#root {
+.game {
   display: flex;
   flex-wrap: wrap;
   gap: 5rem;

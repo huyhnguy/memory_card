@@ -44,15 +44,11 @@ function Name({ id }) {
     )
 }
 
-export default function Card ({ id }) {
-    function handleClick() {
-
-    }
-
+export default function Card ({ id, clickHandler }) {
     return (
         <div 
             className = "card"
-            onClick = {handleClick}
+            onClick = {clickHandler}
         >
             <Image id = {id} />
             <Name id = {id} />
