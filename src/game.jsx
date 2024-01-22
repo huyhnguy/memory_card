@@ -1,6 +1,13 @@
 import Card from "./card"
 import { useState } from "react"
 
+function Score({ score, }) {
+
+    return (
+        <h3>Score:{clickedCards.length}</h3>
+    )
+}
+
 export default function Cards() {
     const [ids, setIds] = useState(
         [
@@ -26,6 +33,8 @@ export default function Cards() {
             "1150"
         ]
     )
+    const [clickedCards, setClickedCards] = useState([]);
+
 
     function shuffle(array) {
         let shuffledArray = [];
@@ -45,14 +54,22 @@ export default function Cards() {
             randomizeArray();
         }
 
-        console.log(shuffledArray);
-            
         return shuffledArray;
     };
 
-    function handleClick() {
+    function addClickedCards(id) {
+        const newClickedCards = clickedCards;
+        newClickedCards.push(id);
+        setClickedCards(newClickedCards);
+    }
+
+    function handleClick(event) {
+
         const newIds = shuffle(ids);
         setIds(newIds);
+
+        console.log(event.target.children[2].outerText);
+        addClickedCards(event.target.children[2].outerText);
     }
 
 
@@ -64,9 +81,7 @@ export default function Cards() {
         />)
 
     return (
-        <div 
-            className = "game"
-        >
+        <div className = "game">
             {cards}
         </div>
     )
