@@ -45,8 +45,15 @@ function Name({ id }) {
 }
 
 export default function Card ({ id }) {
+    function handleClick() {
+
+    }
+
     return (
-        <div className = "card">
+        <div 
+            className = "card"
+            onClick = {handleClick}
+        >
             <Image id = {id} />
             <Name id = {id} />
         </div>
