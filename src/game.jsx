@@ -58,16 +58,14 @@ export default function Cards() {
         return shuffledArray;
     };
 
-    function recordHighScore() {
-
-    }
-
-
     function addClickedCards(id) {
         if (!clickedCards.includes(id)) {
             const newClickedCards = clickedCards;
             newClickedCards.push(id);
             setClickedCards(newClickedCards);
+            if (clickedCards.length === 20) {
+                alert('You win!');
+            }
         } else {
             setHighScore(clickedCards.length);
             setClickedCards([]);
@@ -81,7 +79,6 @@ export default function Cards() {
         setIds(newIds);
 
         addClickedCards(event.target.children[2].outerText);
-        console.log(clickedCards);
     }
 
 
