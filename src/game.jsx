@@ -1,10 +1,10 @@
 import Card from "./card"
 import { useState } from "react"
 
-function Score({ score }) {
+function Score({ score, text }) {
 
     return (
-        <h3>Score:{score}</h3>
+        <h3>{text}:{score}</h3>
     )
 }
 
@@ -34,6 +34,7 @@ export default function Cards() {
         ]
     )
     const [clickedCards, setClickedCards] = useState([]);
+    const [highScore, setHighScore] = useState('0');
 
 
     function shuffle(array) {
@@ -57,12 +58,18 @@ export default function Cards() {
         return shuffledArray;
     };
 
+    function recordHighScore() {
+
+    }
+
+
     function addClickedCards(id) {
         if (!clickedCards.includes(id)) {
             const newClickedCards = clickedCards;
             newClickedCards.push(id);
             setClickedCards(newClickedCards);
         } else {
+            setHighScore(clickedCards.length);
             setClickedCards([]);
         }
         
@@ -86,9 +93,19 @@ export default function Cards() {
         />)
 
     return (
+        <>
+        <Score 
+            score = {clickedCards.length}
+            text = "Score" 
+        />
+        <Score 
+            score = {highScore}
+            text = "High Score"
+        />
         <div className = "game">
-            <Score score = {clickedCards.length}/>
             {cards}
         </div>
+        </>
+        
     )
 }
