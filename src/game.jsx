@@ -1,10 +1,10 @@
 import Card from "./card"
 import { useState } from "react"
 
-function Score({ score, }) {
+function Score({ score }) {
 
     return (
-        <h3>Score:{clickedCards.length}</h3>
+        <h3>Score:{score}</h3>
     )
 }
 
@@ -58,9 +58,14 @@ export default function Cards() {
     };
 
     function addClickedCards(id) {
-        const newClickedCards = clickedCards;
-        newClickedCards.push(id);
-        setClickedCards(newClickedCards);
+        if (!clickedCards.includes(id)) {
+            const newClickedCards = clickedCards;
+            newClickedCards.push(id);
+            setClickedCards(newClickedCards);
+        } else {
+            setClickedCards([]);
+        }
+        
     }
 
     function handleClick(event) {
@@ -68,8 +73,8 @@ export default function Cards() {
         const newIds = shuffle(ids);
         setIds(newIds);
 
-        console.log(event.target.children[2].outerText);
         addClickedCards(event.target.children[2].outerText);
+        console.log(clickedCards);
     }
 
 
@@ -82,6 +87,7 @@ export default function Cards() {
 
     return (
         <div className = "game">
+            <Score score = {clickedCards.length}/>
             {cards}
         </div>
     )
