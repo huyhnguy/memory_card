@@ -1,10 +1,10 @@
 import Card from "./card"
 import { useState } from "react"
 
-function Score({ score, text }) {
+function Score({ score, text, className }) {
 
     return (
-        <h3>{text}:{score}</h3>
+        <h3 className = {className} >{text}: {score}</h3>
     )
 }
 
@@ -91,14 +91,19 @@ export default function Cards() {
 
     return (
         <>
-        <Score 
-            score = {clickedCards.length}
-            text = "Score" 
-        />
-        <Score 
-            score = {highScore}
-            text = "High Score"
-        />
+        <div className = "scores">
+            <Score 
+                score = {clickedCards.length}
+                text = "Score" 
+                className = "score"
+            />
+            <Score 
+                score = {highScore}
+                text = "High Score"
+                className = "score"
+            />
+        </div>
+        
         <div className = "game">
             {cards}
         </div>

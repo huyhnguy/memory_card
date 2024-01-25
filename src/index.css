@@ -6,16 +6,22 @@
 
 * {
   font-family: "Patua One", sans-serif;
+  color: #1C0001
+  
+}
+
+body {
+  background-color: #8b3d02;
 }
 
 
 .card {
-  border: 2px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem 1rem 0 1rem;
   border-radius: 30px;
+  background-color: #ad6935;
 }
 
 .card > * {
@@ -39,4 +45,15 @@ h2 {
   flex-wrap: wrap;
   gap: 5rem;
   justify-content: center;
+}
+
+.scores {
+  position: sticky;
+  top: 1rem;
+
+
+}
+
+.score {
+
 }
