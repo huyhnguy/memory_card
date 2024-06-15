@@ -1,6 +1,6 @@
 # Lion King Memory Card Game
 
-![Project screenshot](/src/assets/screenshot_game.png, "Screenshot of project")
+![Project screenshot](/src/assets/screenshot_game.png "Screenshot of project")
 
 ## Description
 
